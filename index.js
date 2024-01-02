@@ -86,3 +86,18 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// First get the first elements in array. Use map to create new array with the list of months
+let firstElements = finances.map(financialData => financialData[0]);
+//console.log(firstElements);
+
+// Calculate the total number of months
+let numberOfMonths = firstElements.length;
+
+// Console the result
+console.log("Financial Analysis");
+console.log("------------------");
+console.log("Total Months: " + numberOfMonths);
+
+
+
