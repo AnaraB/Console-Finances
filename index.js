@@ -99,24 +99,40 @@ let numberOfMonths = firstElements.length;
 // Get the all second elements by creating new aray with map
 let secondElements = finances.map(financialData => financialData[1]);
 
+//console.log(secondElements);
+
 let totalAmountMoney = 0;
 secondElements.forEach((item) => {
   totalAmountMoney +=item;
 })
 
-console.log(totalAmountMoney);
 
-//console.log(totalAmount);
+// Calculate totalChange in Profit/Losses from month to month
+  let totalChange = 0;
+  for (let i = 1; i < secondElements.length; i++) {
+  totalChange +=secondElements[i] - secondElements[i - 1];
+  //console.log(totalChange);
 
-// Calculate the average of the changes in Profit/Losses over the entire period
-// const average = totalAmountMoney / numberOfMonths;
-// console.log(average);
+  }
+
+// Calculate the average of the total changes in Profit/Losses
+
+const totalAverageChange = totalChange / (numberOfMonths - 1);
+const roundTotalAverageChange =totalAverageChange.toFixed(2);
+
+
+// The greatest increase in Profit/Losses (date and difference in the amounts) over the entire period.
+
+
+// The greatest decrease in Profit/Losses (date and difference in the amounts) over the entire period.
+
 
 // Console the result
 console.log("Financial Analysis");
 console.log("------------------");
 console.log("Total Months: " + numberOfMonths);
 console.log(`Total: $${totalAmountMoney}`)
+console.log(`Average Change: ${roundTotalAverageChange}`)
 
 
 
