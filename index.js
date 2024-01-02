@@ -96,7 +96,7 @@ let numberOfMonths = firstElements.length;
 
 
 // Calculate the sum of all profits/losses
-// Get the all second elements by creating new aray with map
+// Get the all second elements by creating new aray by using map method
 let secondElements = finances.map(financialData => financialData[1]);
 
 //console.log(secondElements);
@@ -109,22 +109,40 @@ secondElements.forEach((item) => {
 
 // Calculate totalChange in Profit/Losses from month to month
   let totalChange = 0;
+
   for (let i = 1; i < secondElements.length; i++) {
-  totalChange +=secondElements[i] - secondElements[i - 1];
-  //console.log(totalChange);
+  totalChange += secondElements[i] - secondElements[i - 1];
 
   }
 
-// Calculate the average of the total changes in Profit/Losses
+// Calculate the average of the total changes in Profit/Losses and round the result 
 
 const totalAverageChange = totalChange / (numberOfMonths - 1);
 const roundTotalAverageChange =totalAverageChange.toFixed(2);
 
 
+var minChange = ['', 999999];
+var maxChange = ['', 0];
+for (let i = 1; i < secondElements.length; i++) {
+var currentChange = secondElements[i] - secondElements[i - 1];
+//console.log(currentChange);
+
+
 // The greatest increase in Profit/Losses (date and difference in the amounts) over the entire period.
 
+if (currentChange > maxChange[1]){
+  maxChange = [firstElements[i], currentChange]
+  //console.log(maxChange);
+} 
 
 // The greatest decrease in Profit/Losses (date and difference in the amounts) over the entire period.
+if (currentChange < minChange[1]){
+  minChange = [firstElements[i], currentChange]
+  //console.log(minChange);
+}
+
+
+}
 
 
 // Console the result
@@ -133,6 +151,8 @@ console.log("------------------");
 console.log("Total Months: " + numberOfMonths);
 console.log(`Total: $${totalAmountMoney}`)
 console.log(`Average Change: ${roundTotalAverageChange}`)
+console.log(`Greatest Increase in Profits/Losses: ${maxChange[0]} ($${maxChange[1]})`)
+console.log(`Greatest Decrease in Profits/Losses: ${minChange[0]} ($${minChange[1]})`)
 
 
 
