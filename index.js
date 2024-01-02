@@ -94,10 +94,29 @@ let firstElements = finances.map(financialData => financialData[0]);
 // Calculate the total number of months
 let numberOfMonths = firstElements.length;
 
+
+// Calculate the sum of all profits/losses
+// Get the all second elements by creating new aray with map
+let secondElements = finances.map(financialData => financialData[1]);
+
+let totalAmountMoney = 0;
+secondElements.forEach((item) => {
+  totalAmountMoney +=item;
+})
+
+console.log(totalAmountMoney);
+
+//console.log(totalAmount);
+
+// Calculate the average of the changes in Profit/Losses over the entire period
+// const average = totalAmountMoney / numberOfMonths;
+// console.log(average);
+
 // Console the result
 console.log("Financial Analysis");
 console.log("------------------");
 console.log("Total Months: " + numberOfMonths);
+console.log(`Total: $${totalAmountMoney}`)
 
 
 
