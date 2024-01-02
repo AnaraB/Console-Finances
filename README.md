@@ -1,5 +1,5 @@
 # Console-Finances
-Analysis of the financial record of a company 
+## Analysis of the financial record of a company 
 
 
 In this challenge, I am  using the concepts I've learned about iterating arrays, concatenation and using conditional statements. This activity presents a real-world situation where I was given a task to analyzr the financial records of a company. 
